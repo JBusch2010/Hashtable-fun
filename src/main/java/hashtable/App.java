@@ -15,7 +15,6 @@ public class App {
         ht.set("Kakashi", "6th Hokage");
         ht.set("Naruto", "7th Hokage");
 
-//
         System.out.println( "Has Hiruzen ... " + ht.has("Hiruzen") );
         System.out.println( "Get Naruto " + ht.get("Naruto") );
         System.out.println( "Get Hiruzen " + ht.get("Hiruzen") );
