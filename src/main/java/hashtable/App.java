@@ -3,6 +3,10 @@
  */
 package hashtable;
 
+import java.util.Set;
+
+import static hashtable.HashTable.RepeatedWord;
+
 public class App {
     public static void main(String[] args) {
 
@@ -19,5 +23,11 @@ public class App {
         System.out.println( "Get Naruto " + ht.get("Naruto") );
         System.out.println( "Get Hiruzen " + ht.get("Hiruzen") );
         System.out.println( "Has Danzo ... " + ht.has("Danzo") );
+
+        //repeatedword
+        String test = "The current Hokage is Naruto, the 7th Hokage.";
+        Set<String> repeated = RepeatedWord(test);
+        System.out.println("input : " + test);
+        System.out.println("output : " + repeated);
     }
 }
