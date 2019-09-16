@@ -70,15 +70,19 @@ public class HashTable {
 
     public static Set<String> RepeatedWord(String input){
 
-        //checking if null or empty
+        // checking if null or empty
         if(input == null || input.isEmpty()){
 
+            // returning empty or null set
             return Collections.emptySet();
         }
 
+        // creating new set for the repeated word
         Set<String> repeated = new HashSet<>();
 
+        // creating spaces in the string
         String[] words = input.split("\\s+");
+
         Set<String> set = new HashSet<>();
 
         for(String word : words){
@@ -86,6 +90,8 @@ public class HashTable {
                 repeated.add(word);
             }
         }
+
+        //returning set of repeated word
         return repeated;
     }
 }
