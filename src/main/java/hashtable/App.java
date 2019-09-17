@@ -5,7 +5,7 @@ package hashtable;
 
 import java.util.Set;
 
-import static hashtable.HashTable.RepeatedWord;
+import static hashtable.HashTable.*;
 
 public class App {
     public static void main(String[] args) {
@@ -29,5 +29,26 @@ public class App {
         Set<String> repeated = RepeatedWord(test);
         System.out.println("input : " + test);
         System.out.println("output : " + repeated);
+
+        //treeIntersection
+        Node root1 = null;
+        root1 = add(root1, 5);
+        root1 = add(root1, 1);
+        root1 = add(root1, 10);
+        root1 = add(root1, 0);
+        root1 = add(root1, 4);
+        root1 = add(root1, 7);
+        root1 = add(root1, 9);
+
+        Node root2 = null;
+        root2 = add(root2, 10);
+        root2 = add(root2, 7);
+        root2 = add(root2, 20);
+        root2 = add(root2, 4);
+        root2 = add(root2, 9);
+
+        System.out.println("Common Nodes: ");
+
+        treeIntersection(root1, root2);
     }
 }

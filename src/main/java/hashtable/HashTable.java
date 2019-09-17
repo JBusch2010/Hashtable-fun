@@ -3,6 +3,8 @@ package hashtable;
 import java.util.HashSet;
 import java.util.*;
 
+import static hashtable.Node.newNode;
+
 public class HashTable {
 
     private Node[] map;
@@ -93,5 +95,88 @@ public class HashTable {
 
         //returning set of repeated word
         return repeated;
+    }
+
+    //https://www.geeksforgeeks.org/print-common-nodes-in-two-binary-search-trees/
+    static void treeIntersection(Node root1, Node root2){
+        Stack<Node> stack1 = new Stack<Node> ();
+        Stack<Node> s1 = new Stack<Node> ();
+        Stack<Node> s2 = new Stack<Node> ();
+
+        while (true){
+
+            //push the Nodes of the first tree in stack s1
+            if (root1 != null) {
+                s1.push(root1);
+                root1 = root1.left;
+            }
+
+            //push the Node of the second tree in s2
+            else if (root2 != null) {
+                s2.push(root2);
+                root2 = root2.left;
+            }
+
+            // both root1 and root2 are null here
+            else if (!s1.isEmpty() && !s2.isEmpty()){
+                root1 = s1.peek();
+                root2 = s2.peek();
+
+                // if current keys in two trees are the same
+                if (root1.nkey == root2.nkey){
+                    System.out.print(root1.nkey + " ");
+                    s1.pop();
+                    s2.pop();
+
+                    // move to the inorder successor
+                    root1 = root1.right;
+                    root2 = root2.right;
+                }
+
+                else if (root1.nkey < root2.nkey){
+                    s1.pop();
+                    root1 = root1.right;
+
+                    //root 2 is set to null because we need new Nodes of tree 1
+                    root2 = null;
+                }
+
+                else if (root1.nkey > root2.nkey){
+                    s2.pop();
+                    root2 = root2.right;
+                    root1 = null;
+                }
+            }
+            // both root and both stacks are empty
+            else break;
+        }
+
+
+    }
+
+    // for in order traversal
+    public static void inOrder (Node root) {
+        if (root != null) {
+            inOrder(root.left);
+            System.out.print(root.key + " ");
+            inOrder(root.right);
+        }
+    }
+
+    // for adding new nodes
+    public static Node add (Node node, int nkey){
+
+        // if the tree is empty return a new node;
+        if (node == null)
+            return newNode (nkey);
+
+        // other wise, recur down the tree
+        if (nkey < node.nkey)
+            node.left = add(node.left, nkey);
+        else if (nkey > node.nkey)
+            node.right = add(node.right, nkey);
+
+        // return the Node pointer
+        return node;
     }
 }

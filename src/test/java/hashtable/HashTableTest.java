@@ -6,7 +6,7 @@ import org.junit.Test;
 import java.util.Collections;
 import java.util.Set;
 
-import static hashtable.HashTable.RepeatedWord;
+import static hashtable.HashTable.*;
 import static org.junit.Assert.*;
 
 public class HashTableTest {
@@ -55,6 +55,29 @@ public class HashTableTest {
         Set<String> repeated = RepeatedWord(test);
         System.out.println("input : " + test);
         System.out.println("output : " + repeated);
+    }
+
+    @Test
+    public void commonNodes() {
+        Node root1 = null;
+        root1 = add(root1, 5);
+        root1 = add(root1, 1);
+        root1 = add(root1, 10);
+        root1 = add(root1, 0);
+        root1 = add(root1, 4);
+        root1 = add(root1, 7);
+        root1 = add(root1, 9);
+
+        Node root2 = null;
+        root2 = add(root2, 10);
+        root2 = add(root2, 7);
+        root2 = add(root2, 20);
+        root2 = add(root2, 4);
+        root2 = add(root2, 9);
+
+        System.out.println("Common Nodes: ");
+
+        treeIntersection(root1, root2);
     }
 
 }
