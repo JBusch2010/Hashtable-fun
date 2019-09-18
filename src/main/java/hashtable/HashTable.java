@@ -154,6 +154,9 @@ public class HashTable {
 
     }
 
+    public static void leftJoin(HashMap hashmap1, HashMap hashmap2) {
+    }
+
     // for in order traversal
     public static void inOrder (Node root) {
         if (root != null) {

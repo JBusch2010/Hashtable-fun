@@ -50,5 +50,28 @@ public class App {
         System.out.println("Common Nodes: ");
 
         treeIntersection(root1, root2);
+
+        //leftjoin
+        HashTable synonym = new HashTable(1024);
+        synonym.set("Pride", "Superbia");
+        synonym.set("Envy", "Invidia");
+        synonym.set("Gluttony", "Overheating");
+        synonym.set("Lust", "Luxuria");
+        synonym.set("Wrath", "Anger");
+        synonym.set("Greed", "Rapacity");
+        synonym.set("Sloth", "Lazy");
+
+
+        HashTable antonym = new HashTable(1024);
+        antonym.set("Pride", "Humility");
+        antonym.set("Envy", "Compassion");
+        antonym.set("Gluttony", "Moderation");
+        antonym.set("Lust", "Chastity");
+        antonym.set("Wrath", "Joy");
+        antonym.set("Greed", "Generous");
+        antonym.set("Sloth", "Vigor");
+
+
+
     }
 }
